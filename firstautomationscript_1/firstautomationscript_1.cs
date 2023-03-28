@@ -57,6 +57,7 @@ namespace Firstautomationscript_1
 	using System.Text;
 	using Skyline.DataMiner.Automation;
 	using Skyline.DataMiner.Core.DataMinerSystem.Automation;
+	using Empower.Library.Room4;
 	/// <summary>
 	/// Represents a DataMiner Automation script.
 	/// </summary>
@@ -68,12 +69,8 @@ namespace Firstautomationscript_1
 		/// <param name="engine">Link with SLAutomation process.</param>
 		public void Run(IEngine engine)
 		{
-			var myDms = engine.GetDms();
-			var allElements = myDms.GetElements();
-			foreach (var element in allElements)
-			{
-				engine.GenerateInformation(element.Name);
-			}
+			var order = OrderFactory.CreateOrder("Order 1");
+			order.Dispatch("Koenbt");
 		}
 	}
 }
